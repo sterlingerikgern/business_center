@@ -1,0 +1,124 @@
+.widget-stats-text {
+	font-size: 1.5em !important;
+	line-height: 1.6em;
+}
+
+ul.announcements {
+  height: 300px;
+  overflow: auto;}
+  
+.capitalize {
+  text-transform: capitalize;
+  }
+  
+  
+
+  
+ ul#mini-nav li.list-box.user-profile .user-avtar {
+      padding: 0px 15px;
+      line-height: 18px;
+      display: block;
+      color: white; }
+ ul#mini-nav li.list-box.user-profile .user-avtar span {
+        margin-top: 0; }
+ ul#mini-nav li.list-box.user-profile .user-avtar i {
+        color: white;
+        font-size: 17px; }
+ ul#mini-nav li.list-box.user-profile .user-avtar:focus {
+        outline: none;
+        text-decoration: none; }
+        
+ .DTS_Loading {
+ 	font-size: 2em;
+ 	line-height: 0em;
+ 	padding-top: 0px;
+ 	
+ }       
+ 
+ .text-bold {
+ 	font-weight: bold;
+ }
+ 
+ .entity_picker_level_2{
+ 	padding-left: 15px;
+ }
+ 
+ 
+ .entity_picker_level_3{
+ 	padding-left: 30px;
+ }
+ 
+  
+ .entity_picker_level_4{
+ 	padding-left: 45px;
+ }
+ 
+  
+ .entity_picker_level_5{
+ 	padding-left: 60px;
+ }
+ 
+  
+ .entity_picker_level_6{
+ 	padding-left: 75px;
+ }
+ 
+ 
+ .filter-option .entity_picker_level_3 {
+ 	padding-left: 0;
+ }
+ 
+ 
+ .filter-option .muted{
+ 	display: none;
+ }
+ 
+  
+ 
+ 
+ .filter-option .entity_picker_level_2 {
+ 	padding-left: 0;
+ }
+ 
+ 
+.xentity_picker .pinned {
+ 	background-color: #ddefde;
+ }
+ 
+ .entity_picker .dropdown-header:first-child {
+ 	line-height: 2em;
+
+ }
+
+
+.last {
+	margin-bottom: 9px;
+	//border-bottom: 1px dotted gray;
+} 
+ 
+ 
+ .bootstrap-select.btn-group .dropdown-menu li:not(.disabled) a:hover small{
+ 	color: #777 !important;
+ }
+ 
+  .bootstrap-select.btn-group .dropdown-menu li:not(.disabled) a small{
+ 	color: #777 !important;
+ }
+ 
+  .bootstrap-select.btn-group .dropdown-menu li.selected a:hover small{
+ 	color: #fff !important;
+ }
+ 
+  .bootstrap-select.btn-group .dropdown-menu li.selected a small{
+ 	color: #fff !important;
+ }
+ 
+ 
+ .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+ 	background-color: #83b488 !important;
+ }
+
+
+ .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a {
+ 	background-color: #83b488 !important;
+ }
