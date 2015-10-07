@@ -1,7 +1,7 @@
 'use strict';
 
 /* Controllers */
-angular.module('app.controllers', []).controller('AppCtrl', [
+angular.module('app.controllers').controller('AppCtrl', [
   '$scope', '$location', '$resource', '$rootScope', function($scope, $location, $resource, $rootScope) {
     $scope.$location = $location;
     $scope.$watch('$location.path()', function(path) {
@@ -15,59 +15,7 @@ angular.module('app.controllers', []).controller('AppCtrl', [
       }
     };
   }
-]).controller('navSubCtrl', [
-  '$scope', function($scope) {
-    return $scope;
-  }
-]).controller('MyCtrl2', [
-  '$scope', function($scope) {
-    return $scope;
-  }
-]).controller('MyCtrl2', [
-  '$scope', function($scope) {
-    return $scope;
-  }
-])
-.controller('navTabsCtrl', ['$scope', function ($scope) {
-    $scope.activeTab = '';
-    $scope.tabs = [
-    				{
-    				 'display': 'Dashboard',
-    				 'icon': 'fa-dashboard',
-    				 'url': 'partials/merchant-dashboard.html'
-    				 },{
-    				 'display': 'Statements',
-    				 'icon': 'fa-align-justify',
-    				 'url': 'partials/merchant-dashboard.html'
-    				 },{
-    				 'display': 'Processing',
-    				 'icon': 'fa-bar-chart-o',
-    				 'url': 'partials/merchant-dashboard.html'
-    				 },{
-    				 'display': 'Disputes',
-    				 'icon': 'fa-flag',
-    				 'url': 'partials/merchant-dashboard.html'
-    				 },{
-    				 'display': 'Programs',
-    				 'icon': 'fa-sliders',
-    				 'url': 'partials/merchant-dashboard.html'
-    				 },{
-    				 'display': 'Resources',
-    				 'icon': 'fa-tags',
-    				 'url': 'partials/merchant-dashboard.html'
-    				 },{
-    				 'display': 'Help',
-    				 'icon': 'fa-table',
-    				 'url': 'partials/merchant-dashboard.html'
-    				 }
-    				 ];
-    $scope.setTab = function(selectedTab){
-    	$scope.activeTab = selectedTab;
-    	console.log(selectedTab);
-    }				 
-
-}]
-).controller('MainCtrl', ['$scope', function ($scope) {
+]).controller('MainCtrl', ['$scope', function ($scope) {
     $scope.val = 'B';
     $scope.states = ['California', 'Arizona', 'Nevada', 'Florida'];
     $scope.slides = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg'];

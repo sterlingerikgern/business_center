@@ -1,0 +1,30 @@
+<div id='cssmenu' >
+  <ul>
+	<li ng-class="activeTab == tab ? 'active' : 'not-active'" ng-repeat="tab in tabs" ng-click="setTab(tab)">
+	  <a ng-href="#/{{tab.url}}">
+		<i class="fa {{tab.icon}}"></i>
+		{{tab.display}}
+	  </a>
+	  
+	   <ul>
+		  	<li ng-repeat="child in tab.menuItems" ng-click="setTab(child)">
+				<a ng-href="#/{{child.url}}">
+				{{child.display}}
+				</a>
+				
+				   <ul>
+						<li ng-repeat="submenu1 in child.menuItems" ng-click="setTab(submenu1)">
+							<a ng-href="#/{{submenu1.url}}">
+							{{submenu1.display}}
+							</a>
+						</li>
+				  </ul>
+	  
+			</li>
+	  </ul>
+	
+	</li>
+
+  </ul>
+</div>
+<!-- Top Nav End -->

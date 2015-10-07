@@ -5,15 +5,23 @@ App = angular.module('app', ['ngCookies', 'ngResource', 'ngRoute', 'app.controll
 
 App.config([
   '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider, config) {
-    $routeProvider.when('/todo', {
-      templateUrl: 'partials/todo.html'
+    $routeProvider.when('/dashboard', {
+      templateUrl: 'partials/dashboard/merchant.html'
+    }).when('/dashboard/ar', {
+      templateUrl: 'partials/dashboard/ar.html'
     }).when('/view1', {
-      templateUrl: 'partials/partial1.html'
+      templateUrl: 'partials/1/partial1.html'
     }).when('/view2', {
-      templateUrl: 'partials/partial2.html'
+      templateUrl: 'partials/2/partial2.html'
     }).otherwise({
-      redirectTo: '/todo'
+      redirectTo: '/dashboard'
     });
     return $locationProvider.html5Mode(false);
   }
 ]);
+
+
+angular.module('app.services', 		[]);
+angular.module('app.filters', 		[]);
+angular.module('app.controllers',   []);
+angular.module('app.directives',  	['app.services', 'app.controllers']);
