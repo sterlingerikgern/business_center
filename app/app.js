@@ -1,24 +1,42 @@
 'use strict';
-var App;
 
-App = angular.module('app', ['ngCookies', 'ngResource', 'ngRoute', 'app.controllers', 'app.directives', 'app.filters', 'app.services', 'templates', 'ui.bootstrap']);
+var $routeProviderReference;
 
-App.config([
-  '$routeProvider', '$locationProvider', function($routeProvider, $locationProvider, config) {
-    $routeProvider.when('/dashboard', {
-      templateUrl: 'partials/dashboard/merchant.html'
-    }).when('/dashboard/ar', {
-      templateUrl: 'partials/dashboard/ar.html'
-    }).when('/view1', {
-      templateUrl: 'partials/1/partial1.html'
-    }).when('/view2', {
-      templateUrl: 'partials/2/partial2.html'
-    }).otherwise({
-      redirectTo: '/dashboard'
-    });
-    return $locationProvider.html5Mode(false);
-  }
-]);
+angular.module('app', ['ngCookies', 'ngResource', 'ngRoute', 'app.controllers', 'app.directives', 'app.filters', 'app.services', 'templates', 'ui.bootstrap'])
+.config(['$routeProvider', function($routeProvider) {
+  $routeProviderReference = $routeProvider;
+}]);
+
+angular
+.module('app')
+.run(['$rootScope', '$http', '$route', '$log', function($rootScope, $http, $route, $log) {
+    //getting routes
+   
+    $http.get('/routes.json').success(function (data) {
+		//$log.debug(data);
+		angular.forEach(data, function (route) {
+			$routeProviderReference.when( route.url, { templateUrl: route.template } );
+			 //$log.debug('Individual ROUTE');
+			 //$log.debug(route);
+			angular.forEach(route.menuItems, function (route1) {
+				$routeProviderReference.when( route1.url, { templateUrl: route1.template } );
+				
+				//$log.debug(route1);
+				angular.forEach(route1.menuItems, function (route2) {
+					$routeProviderReference.when( route2.url, { templateUrl: route2.template } );
+					//$log.debug(route2);
+				});
+			
+			});
+		
+		
+		});
+		$routeProviderReference.otherwise({ redirectTo: '/dashboard/merchant' });
+		$route.reload();
+	});
+
+}]);
+
 
 
 angular.module('app.services', 		[]);
