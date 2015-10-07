@@ -23,7 +23,8 @@
     "bootstrap-sass": "bootstrap-sass-official#~3.3.5",
     "bootstrap": "~3.3.5",
     "angular-animate": "~1.4.7",
-    "components-font-awesome": "~4.4.0"
+    "components-font-awesome": "~4.4.0",
+    "nya-bootstrap-select": "~2.1.2"
   },
   "overrides": {
     "angular-mocks": {

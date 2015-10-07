@@ -1,26 +1,92 @@
+    <!-- Sub Nav End -->
+        <div class="sub-nav <!---hidden-sm hidden-xs--->">
 
-  <h2>Merchant Dashboard</h2>
-  <div ng-controller="TodoCtrl"><span>{{remaining()}} of {{todos.length}} remaining</span> [<a href="" ng-click="archive()">archive</a>]
-    <ul class="unstyled">
-      <li ng-repeat="todo in todos">
-        <label class="checkbox inline">
-          <input type="checkbox" ng-model="todo.done"/><span class="done{{todo.done}}">{{todo.text}}</span>
-        </label>
-      </li>
-    </ul>
-    
-    
-    <form ng-submit="addTodo()" class="form-inline">
-      <p>
-        <input type="text" ng-model="todoText" size="30" placeholder="add new todo here"/>
-        <input type="submit" value="add" class="btn btn-primary"/>
-      </p>
-    </form>
-  </div>
+          	<div class="col-xs-12 col-sm-4">
+		
+<ol class="nya-bs-select" ng-model="myModel" style="width:100%">
+    <li data-value="alpha" class="nya-bs-option">
+        <a>
+           <span class='hq'><i class='fa fa-cubes'></i> HQ name</span> <small class='muted text-muted'>7973770</small>
+        </a>
+    </li>
+    <li data-value="beta" class="nya-bs-option">
+        <a>
+           <span style='padding-left:15px;'><i class='fa fa-building'></i> Corporation name</span> <small class='muted text-muted'>9021303</small>
+        </a>
+    </li>
+    <li data-value="charlie" class="nya-bs-option">
+        <a>
+           <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 2</span> <small class='muted text-muted'>77488788772</small>
+        </a>
+    </li>
+    <li data-value="alpha" class="nya-bs-option">
+        <a>
+           <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 3</span> <small class='muted text-muted'>77488788773</small>
+        </a>
+    </li>
+    <li data-value="beta" class="nya-bs-option">
+        <a>
+           <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 4</span> <small class='muted text-muted'>77488788774</small>
+        </a>
+    </li>
+    <li data-value="charlie" class="nya-bs-option">
+        <a>
+          <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 5</span> <small class='muted text-muted'>77488788775</small>
+        </a>
+    </li>
+    <li data-value="charlie" class="nya-bs-option">
+        <a>
+        	<span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 6</span> <small class='muted text-muted'>77488788776</small>
+        </a>
+    </li>
+</ol>
 
-<div class="row marketing">
-  <datepicker ng-model="start" show-weeks="false"></datepicker> {{start | date}}
+
+          	</div>
+       
+          
+          	<div class="col-xs-12 col-sm-3">
+          	
+          			<div class="form-group">
+					  <input type="text"  name="daterange"  class="form-control"  value="" placeholder="Data Range"  style="margin-top: 10px;">
+					</div>
+              
+          	</div>
+          	
+        
+        </div>
+        <!-- Sub Nav End -->
+        
+        
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper-lg">
+	<div class="view-container">
+
+		  <h2>Merchant Dashboard</h2>
+		  <div ng-controller="TodoCtrl"><span>{{remaining()}} of {{todos.length}} remaining</span> [<a href="" ng-click="archive()">archive</a>]
+			<ul class="unstyled">
+			  <li ng-repeat="todo in todos">
+				<label class="checkbox inline">
+				  <input type="checkbox" ng-model="todo.done"/><span class="done{{todo.done}}">{{todo.text}}</span>
+				</label>
+			  </li>
+			</ul>
+
+
+			<form ng-submit="addTodo()" class="form-inline">
+			  <p>
+				<input type="text" ng-model="todoText" size="30" placeholder="add new todo here"/>
+				<input type="submit" value="add" class="btn btn-primary"/>
+			  </p>
+			</form>
+		  </div>
+
+		<div class="row marketing">
+		  <datepicker ng-model="start" show-weeks="false"></datepicker> {{start | date}}
+		</div>
+
+	</div> 
 </div>
-
+<!-- Dashboard Wrapper End -->
 
 
