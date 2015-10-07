@@ -6,9 +6,13 @@
 
 ## Follow these steps to get started:
 
-Make sure you have brunch installed.
+Make sure you have node, brunch and bower installed.
+
+Download NodeJS at:  [NodeJS](http://nodejs.org)
 
 `npm install -g brunch`
+
+`npm install -g bower`
 
 Then
 
@@ -17,6 +21,11 @@ Then
 Then
 
 `cd your_folder`
+
+Then
+
+`bower install`
+
 
 Then
 
