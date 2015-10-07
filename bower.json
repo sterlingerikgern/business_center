@@ -22,7 +22,8 @@
     "bootstrap": "~3.3.5",
     "components-font-awesome": "~4.4.0",
     "nya-bootstrap-select": "~2.1.2",
-    "angular-daterangepicker": "~0.1.17"
+    "angular-daterangepicker": "~0.1.17",
+    "angular-google-chart": "~0.0.11"
   },
   "overrides": {
     "angular-mocks": {

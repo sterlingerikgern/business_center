@@ -3,40 +3,47 @@
 
           	<div class="col-xs-12 col-sm-4">
 		
-<ol class="nya-bs-select" ng-model="myModel" style="width:100%">
-    <li data-value="alpha" class="nya-bs-option">
+<ol class="nya-bs-select" ng-model="myModel" style="width:100%" data-live-search="true" multiple data-size="10">
+    <li data-value="7973770" class="nya-bs-option">
         <a>
            <span class='hq'><i class='fa fa-cubes'></i> HQ name</span> <small class='muted text-muted'>7973770</small>
+           <span class="glyphicon glyphicon-ok check-mark"></span>
         </a>
     </li>
-    <li data-value="beta" class="nya-bs-option">
+    <li data-value="9021303" class="nya-bs-option">
         <a>
            <span style='padding-left:15px;'><i class='fa fa-building'></i> Corporation name</span> <small class='muted text-muted'>9021303</small>
+           <span class="glyphicon glyphicon-ok check-mark"></span>
         </a>
     </li>
-    <li data-value="charlie" class="nya-bs-option">
+    <li data-value="77488788772" class="nya-bs-option">
         <a>
            <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 2</span> <small class='muted text-muted'>77488788772</small>
+           <span class="glyphicon glyphicon-ok check-mark"></span>
         </a>
     </li>
-    <li data-value="alpha" class="nya-bs-option">
+    <li data-value="77488788773" class="nya-bs-option">
         <a>
            <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 3</span> <small class='muted text-muted'>77488788773</small>
+           <span class="glyphicon glyphicon-ok check-mark"></span>
         </a>
     </li>
-    <li data-value="beta" class="nya-bs-option">
+    <li data-value="77488788774" class="nya-bs-option">
         <a>
            <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 4</span> <small class='muted text-muted'>77488788774</small>
+           <span class="glyphicon glyphicon-ok check-mark"></span>
         </a>
     </li>
-    <li data-value="charlie" class="nya-bs-option">
+    <li data-value="77488788775" class="nya-bs-option">
         <a>
           <span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 5</span> <small class='muted text-muted'>77488788775</small>
+          <span class="glyphicon glyphicon-ok check-mark"></span>
         </a>
     </li>
-    <li data-value="charlie" class="nya-bs-option">
+    <li data-value="77488788776" class="nya-bs-option">
         <a>
         	<span style='padding-left:30px;'><i class='fa fa-flag'></i> Merchant name 6</span> <small class='muted text-muted'>77488788776</small>
+        	<span class="glyphicon glyphicon-ok check-mark"></span>
         </a>
     </li>
 </ol>
@@ -65,30 +72,339 @@
 
 
 
+        
+        <!-- Row starts -->
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6">
+              <div class="mini-widget">
+                <div class="mini-widget-heading clearfix">
+                  <div class="pull-left">Transactions</div>
+                  <div class="pull-right"><i class="fa fa-angle-up"></i> 5.2<sup>%</sup></div>
+                </div>
+                <div class="mini-widget-body clearfix">
+                  <div class="pull-left">
+                    <i class="fa fa-credit-card"></i>
+                  </div>
+                  <div class="pull-right number">12,132</div>
+                </div>
+                <div class="mini-widget-footer center-align-text">
+                  <span>View All Transactions</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+              <div class="mini-widget">
+                <div class="mini-widget-heading clearfix">
+                  <div class="pull-left">Last Settlement</div>
+                  <div class="pull-right"><i class="fa fa-angle-up"></i> 18.3<sup>%</sup></div>
+                </div>
+                <div class="mini-widget-body clearfix">
+                  <div class="pull-left">
+                    <i class="fa fa-money"></i>
+                  </div>
+                  <div class="pull-right number">$37,807</div>
+                </div>
+                <div class="mini-widget-footer center-align-text">
+                  <span>View All Settlements</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+              <div class="mini-widget">
+                <div class="mini-widget-heading clearfix">
+                  <div class="pull-left">Disputes</div>
+                </div>
+                <div class="mini-widget-body clearfix">
+                  <div class="pull-left">
+                    <i class="fa fa-flag"></i>
+                  </div>
+                  <div class="pull-right number">0 New</div>
+                </div>
+                <div class="mini-widget-footer center-align-text">
+                  <span>You have 2 pending disputes.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+              <div class="mini-widget mini-widget-grey">
+                <div class="mini-widget-heading clearfix">
+                  <div class="pull-left">PCI Status</div>
+                </div>
+                <div class="mini-widget-body clearfix">
+                  <div class="pull-left">
+                    <i class="fa fa-flag"></i>
+                  </div>
+                  <div class="pull-right number">Not compliant!</div>
+                </div>
+                <div class="mini-widget-footer center-align-text">
+                  <span>4 of your 7 devices need attention</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Row ends -->
 
-		  <h2>Merchant Dashboards</h2>
-		  <div ng-controller="TodoCtrl"><span>{{remaining()}} of {{todos.length}} remaining</span> [<a href="" ng-click="archive()">archive</a>]
-			<ul class="unstyled">
-			  <li ng-repeat="todo in todos">
-				<label class="checkbox inline">
-				  <input type="checkbox" ng-model="todo.done"/><span class="done{{todo.done}}">{{todo.text}}</span>
-				</label>
-			  </li>
-			</ul>
+       
+            
+              
+                <div class="row">
+					<div class="col-xs-8">
+						<div class="widget">
+							<div class="widget-body">
+							  <!-- Row starts -->
+							  <div class="row">
+								<img src="/assets/img/ad_funding_equipment_205_05.jpg" class="img-responsive">
+								</div>
+							  <!-- Row ends -->
+							</div>
+						</div>
+					</div>
+					
+					<div class="col-xs-4">
+						 <div class="widget">
+							<div class="widget-body">
+							  <!-- Carousel
+								================================================== -->
+								<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+								  <!-- Indicators -->
+								  <ol class="carousel-indicators">
+									<li data-target="##myCarousel" data-slide-to="0" class="active"></li>
+									<li data-target="##myCarousel" data-slide-to="1"></li>
+									<li data-target="##myCarousel" data-slide-to="2"></li>
+								  </ol>
+								  <div class="carousel-inner" role="listbox">
+									<div class="item active">
+									  <img class="first-slide img-responsive" src="/assets/img/slideshows/meetStaff.jpg" >
+									  
+									</div>
+									
+									<div class="item ">
+									  <img class="first-slide img-responsive" src="/assets/img/slideshows/000000001.jpg" >
+									  <div class="container">
+										<div class="carousel-caption">
+			 
+										  <p>Katie Martin, Sterling Merchant Services Representative.</p>
+			 
+										</div>
+									  </div>
+									</div>
+									<div class="item">
+									  <img class="second-slide img-responsive" src="/assets/img/slideshows/000000002.jpg" >
+									  <div class="container">
+										<div class="carousel-caption">
+			
+										  <p>Christian Toro, Merchant Services Representative.</p>
+			 
+										   </div>
+									  </div>
+									</div>
+									<div class="item">
+									  <img class="third-slide img-responsive" src="/assets/img/slideshows/000000003.jpg" >
+									  <div class="container">
+										<div class="carousel-caption">
+										  <p>Jeff Albrechta, Director, Technical Support and Deployment.</p>
+										  </div>
+									  </div>
+									</div>
+								  </div>
+								  <a class="left carousel-control" href="##myCarousel" role="button" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+									<span class="sr-only">Previous</span>
+								  </a>
+								  <a class="right carousel-control" href="##myCarousel" role="button" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+									<span class="sr-only">Next</span>
+								  </a>
+								</div><!-- /.carousel -->
+							</div>
+						  </div>
+						
+					</div>
+					
+					
+			  </div>
+			  <!-- Row End -->
+          
+          
+          
 
+         
 
-			<form ng-submit="addTodo()" class="form-inline">
-			  <p>
-				<input type="text" ng-model="todoText" size="30" placeholder="add new todo here"/>
-				<input type="submit" value="add" class="btn btn-primary"/>
-			  </p>
-			</form>
-		  </div>
+          <!-- Row Start -->
+          <div class="row">
+          
+          	<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+           
+           
+           <div class="row">
+          
+          	<!--- VOLUME SUMMARY ---> 
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                   		Volume Summary
+                    <span class="mini-title">
+                      
+                    </span>
+                  </div>
+                  <!---<span class="tools">
+                    <a class="btn btn-success btn-xs" href="##">
+                      <i class="fa fa-cog"></i>
+                    </a>
+                  </span>--->
+                </div>
+                <div class="widget-body">
+                  <div id="merchantVolumeSummary" class="chart-height-md"></div>
+                </div>
+              </div>
+            </div>
+            <!--- END: VOLUME SUMMARY ---> 
+            
+            
+            <!--- VOLUME TREND BY TYPE ---> 
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                  	Volume by Card Type
+                  	 
+                  </div>
+                  <!---<span class="tools">
+                    <a class="btn btn-success btn-xs" href="##">
+                      <i class="fa fa-cog"></i>
+                    </a>
+                  </span>--->
+                </div>
+                <div class="widget-body">
+                  <div id="merchantVolumeCardTypes" class="chart-height-md"></div>
+                </div>
+              </div>
+            </div>
+           <!--- END: VOLUME TREND BY TYPE ---> 
+           
+           <!--- VOLUME DETAILS ---> 
+            
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+              <div class="widget">
+                <div class="widget-header">
+                  <div class="title">
+                  	Volume Details (YTD)
+                  	 
+                  </div>
+                  <!---<span class="tools">
+                    <a class="btn btn-success btn-xs" href="##">
+                      <i class="fa fa-cog"></i>
+                    </a>
+                  </span>--->
+                </div>
+                <div class="widget-body">
+                  
+                  
+      	           <div class="widget-stats-text">Sales: $1,405,212.18</div>
+      	           <div class="widget-stats-text">Transactions:  85,017</div>
+      	           <div class="widget-stats-text">Average Ticket: $16.53</div>
+      	           <div class="widget-stats-text">Returns: $7,938.72</div>
+      	           <div class="widget-stats-text">Net: <b>$1,397,273.46</b></div>
+                  
+                </div>
+              </div>
+            </div>
+            
+             <!--- END: VOLUME DETAILS --->
+            
+            
+            </div>  <!-- end .row -->
+            
+            
+             <!-- Row Start -->
+            <div class="row">
+              <div class="col-lg-12 col-md-12">
+                <div class="widget">
+                  <div class="widget-header">
+                    <div class="title">
+                      Deposit History
+                    </div>
+                    <!---<span class="tools">
+                    <a class="btn btn-success btn-xs" href="##">
+                      <i class="fa fa-cog"></i>
+                    </a>
+                  </span>--->
+                  </div>
+                  <div class="widget-body">
+                    <div id="line_chart"></div>
+                  </div>
+                  
+            
+                </div>
+              </div>
+            </div>
+            <!-- Row End -->
+            	
+            	
+            	
+            	
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            
+            
+			 <!--- ANNOUNCEMENTS --->
+            
+        		 <div class="widget">
+					<div class="widget-header">
+					  <div class="title">
+						Announcements
+					  </div>
+					</div>
+					<div class="widget-body">
+					  <ul class="announcements">
+						<li class="announcement-list warning">
+						  <div class="detail-info">
+							<a href="" class="header">
+							  <i class="fa fa-microphone"></i> May 2015 Statement Now Posted to the Business Center
+							</a>
+							<p class="message">
+							 Your May 2015 Statement is now available  under the Statements tab. We appreciate your business!
+							</p>
+						  </div>
+						</li>
+						<li class="announcement-list info">
+						  <div class="detail-info">
+							<a href="" class="header">
+							  <i class="fa fa-bullhorn"></i>  American Express Acceptance Agreement Now Online  
+							</a>
+							<p class="message">
+							 Effective with the October 2014 mandates, American Express has made changes to the Card Acceptance Agreement (CAA). You may now view your updated American Express Acceptance Agreement online in Business Center's Document Center. Access the Document Center, select Document Search and enter keywords, One Point.
+For questions or more information, please contact Sterling's Merchant Services team at 800-383-0561 or via e-mail at <a href="mailto:">merchant.services@sterlingpayment.com</a>
 
-		<div class="row marketing">
-		  <datepicker ng-model="start" show-weeks="false"></datepicker> {{start | date}}
-		</div>
+							</p>
+						  </div>
+						</li>
+						<li class="announcement-list success">
+						  <div class="detail-info">
+							<a href="" class="header">
+							   <i class="fa fa-microphone"></i> There is Still Time to Enroll
+							</a>
+							<p class="message">
+							  As your payment processor, Sterling Payment Technologies, LLC has partnered with MCAG, a class action settlement expert, to streamline the filing process and secure recoveries for our valued merchants from the "Visa&reg;/MasterCard&reg; Interchange Fee Class Action Settlement.&rdquo;
+The lawsuit claims that merchants paid more fees than they should have for accepting Visa&reg; and MasterCard&reg; as payment from consumers during the period between January 1, 2004 and November 28, 2012.  If your business accepted Visa&reg; or MasterCard&reg; credit or debit payments in the U.S. during this period of time, you may be eligible to recover funds from this approved $5+ billion Settlement.
+ <br/><br/>
+There are no upfront or hidden fees.  If no money is recovered on your behalf, then no money is owed to MCAG for this service.  Act now, and enroll today in the MCAG Settlement Recovery Service.  For additional information, class members may visit http://www.paymentcardsettlement.com/, the Court-approved website for this case.
 
+							</p>
+						  </div>
+						</li>
+				   
+					  </ul>
+					</div>
+         
+             <!--- END: ANNOUNCEMENTS --->
+            
+            </div>
+            
+            
+          </div>
+          <!-- Row End -->
 
 
 
