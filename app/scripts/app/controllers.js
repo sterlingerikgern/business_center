@@ -15,7 +15,15 @@ angular.module('app.controllers').controller('AppCtrl', [
       }
     };
   }
-]).controller('MainCtrl', ['$scope', function ($scope) {
+])
+.controller('TestCtrl', ['$scope', '$interval', function($scope, $interval) {
+    $scope.date = {
+        startDate: moment().subtract("days", 1),
+        endDate: moment()
+    };
+ 
+}])
+.controller('MainCtrl', ['$scope', function ($scope) {
     $scope.val = 'B';
     $scope.states = ['California', 'Arizona', 'Nevada', 'Florida'];
     $scope.slides = ['pic1.jpg', 'pic2.jpg', 'pic3.jpg'];

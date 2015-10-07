@@ -48,7 +48,8 @@
           	<div class="col-xs-12 col-sm-3">
           	
           			<div class="form-group">
-					  <input type="text"  name="daterange"  class="form-control"  value="" placeholder="Data Range"  style="margin-top: 10px;">
+          			  <input date-range-picker class="form-control date-picker" type="text"
+                           name="date" ng-model="date" placeholder="Data Range">
 					</div>
               
           	</div>
@@ -62,7 +63,10 @@
 <div class="dashboard-wrapper-lg">
 	<div class="view-container">
 
-		  <h2>Merchant Dashboard</h2>
+
+
+
+		  <h2>Merchant Dashboards</h2>
 		  <div ng-controller="TodoCtrl"><span>{{remaining()}} of {{todos.length}} remaining</span> [<a href="" ng-click="archive()">archive</a>]
 			<ul class="unstyled">
 			  <li ng-repeat="todo in todos">
@@ -84,6 +88,10 @@
 		<div class="row marketing">
 		  <datepicker ng-model="start" show-weeks="false"></datepicker> {{start | date}}
 		</div>
+
+
+
+
 
 	</div> 
 </div>

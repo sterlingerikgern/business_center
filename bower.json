@@ -24,7 +24,8 @@
     "bootstrap": "~3.3.5",
     "angular-animate": "~1.4.7",
     "components-font-awesome": "~4.4.0",
-    "nya-bootstrap-select": "~2.1.2"
+    "nya-bootstrap-select": "~2.1.2",
+    "angular-daterangepicker": "~0.1.17"
   },
   "overrides": {
     "angular-mocks": {
