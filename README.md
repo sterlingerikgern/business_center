@@ -8,7 +8,7 @@ v0.10.6b run `./scripts/init.sh`
 
 
 
-## How to use angular-brunch-seed
+## How to use
 `brunch new https://github.com/johnjarrard/business_center`
 
 You must also install packages using bower. Either
