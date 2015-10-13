@@ -54,10 +54,30 @@ angular.module('app.controllers')
 .controller('merchantVolumeSummary', function ($scope) {
               $scope.datasource = {
                 chart: {
-                  	"showBorder": "0",
+					"numberPrefix": "$",
+					"paletteColors": "#0075c2",
 					"bgAlpha" : "50",
 					"bgColor" : "f7f7f7",
-					showlegend: "0",
+					"showBorder": "0",
+					"showCanvasBorder": "0",
+					"usePlotGradientColor": "0",
+					"plotBorderAlpha": "10",
+					"placeValuesInside": "1",
+					"valueFontColor": "#ffffff",
+					"showAxisLines": "1",
+					"axisLineAlpha": "25",
+					"divLineAlpha": "10",
+					"alignCaptionWithCanvas": "0",
+					"showAlternateVGridColor": "0",
+					"captionFontSize": "14",
+					"subcaptionFontSize": "14",
+					"subcaptionFontBold": "0",
+					"toolTipColor": "#ffffff",
+					"toolTipBorderThickness": "0",
+					"toolTipBgColor": "#000000",
+					"toolTipBgAlpha": "80",
+					"toolTipBorderRadius": "2",
+					"toolTipPadding": "5"
                 },
                 data:[{
                     label: "1/15",
@@ -78,7 +98,14 @@ angular.module('app.controllers')
                 {
                     label: "5/15",
                     value: "330000"
-                }]
+                }],
+				"trendlines": [{
+					"line": [{
+						"startvalue": "630000",
+						"color": "#1aaf5d",
+						"displayvalue": "Target"
+					}]
+				}]
               };
             });
             
@@ -89,50 +116,52 @@ angular.module('app.controllers')
 					chart: {
 						"palette": "2",
 						"showvalues": "0",
-						"divlinedecimalprecision": "1",
-						"limitsdecimalprecision": "1",
-						"pyaxisname": "Amount",
-						"syaxisname": "Quantity",
-						"numberprefix": "$",
 						"formatnumberscale": "0",
-						"showBorder": "0",
-						"theme": "zune",
+						"showlegend": "0",
+						"paletteColors": "#0075c2,#00c260",
 						"bgAlpha" : "50",
 						"bgColor" : "f7f7f7",
-						showlegend: "0",
+						"showBorder": "0",
+						"showCanvasBorder": "0",
+						"usePlotGradientColor": "0",
+						"plotBorderAlpha": "10",
+						"placeValuesInside": "1",
+						"valueFontColor": "#ffffff",
+						"showAxisLines": "1",
+						"axisLineAlpha": "25",
+						"divLineAlpha": "10",
+						"alignCaptionWithCanvas": "0",
+						"showAlternateVGridColor": "0",
+						"captionFontSize": "14",
+						"subcaptionFontSize": "14",
+						"subcaptionFontBold": "0",
+						"toolTipColor": "#ffffff",
+						"toolTipBorderThickness": "0",
+						"toolTipBgColor": "#000000",
+						"toolTipBgAlpha": "80",
+						"toolTipBorderRadius": "2",
+						"toolTipPadding": "5"
+
+
+
 					},
 					"categories": [
 						{
 							"category": [
 								{
-									"label": "A"
+									"label": "Jan"
 								},
 								{
-									"label": "B"
+									"label": "Feb"
 								},
 								{
-									"label": "C"
+									"label": "Mar"
 								},
 								{
-									"label": "D"
+									"label": "Apr"
 								},
 								{
-									"label": "E"
-								},
-								{
-									"label": "F"
-								},
-								{
-									"label": "G"
-								},
-								{
-									"label": "H"
-								},
-								{
-									"label": "I"
-								},
-								{
-									"label": "J"
+									"label": "May"
 								}
 							]
 						}
@@ -155,21 +184,6 @@ angular.module('app.controllers')
 								},
 								{
 									"value": "2246"
-								},
-								{
-									"value": "2696"
-								},
-								{
-									"value": "1287"
-								},
-								{
-									"value": "2140"
-								},
-								{
-									"value": "1603"
-								},
-								{
-									"value": "1628"
 								}
 							]
 						},
@@ -191,21 +205,6 @@ angular.module('app.controllers')
 								},
 								{
 									"value": "1856"
-								},
-								{
-									"value": "1126"
-								},
-								{
-									"value": "987"
-								},
-								{
-									"value": "1610"
-								},
-								{
-									"value": "903"
-								},
-								{
-									"value": "928"
 								}
 							]
 						}
@@ -226,7 +225,7 @@ angular.module('app.controllers')
 		
 		$scope.datasource = {
 				chart: {
-					startingangle: "80",
+					startingangle: "0",
 					showlabels: "1",
 					showlegend: "0",
 					enablemultislicing: "0",
@@ -236,6 +235,11 @@ angular.module('app.controllers')
 					theme: "fint",
 					"bgAlpha" : "50",
 					"bgColor" : "f7f7f7",
+					"plotgradientcolor": "",
+					"paletteColors": "#0075c2,#00c260,#03622c,#3f9c35",
+					enableRotation: "1",
+					pieYScale: "900",
+					pieRadius: "80"
 				},
 				data: [
 					{
@@ -277,9 +281,9 @@ angular.module('app.controllers')
 				"captionpadding": "30",
 				"linethickness": "3",
 				"yaxisvaluespadding": "15",
-				"legendshadow": "0",
+				"legendshadow": "1",
 				"legendborderalpha": "0",
-				"palettecolors": "#f8bd19,#008ee4,#33bdda,#e44a00,#6baa01,#583e78",
+				"paletteColors": "#0075c2,#00c260",
 				"showborder": "0",
 				"bgAlpha" : "50",
 				"bgColor" : "f7f7f7",
