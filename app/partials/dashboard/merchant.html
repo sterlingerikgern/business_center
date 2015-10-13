@@ -74,280 +74,196 @@
 
         
         <!-- Row starts -->
-          <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6">
-              <div class="mini-widget">
+          <div class="row" ng-controller="status_boxes">
+          
+          
+            <div class="col-lg-3 col-md-3 col-sm-6" ng-repeat="item in data">
+              <div class="mini-widget {{item.widgetClass}}">
                 <div class="mini-widget-heading clearfix">
-                  <div class="pull-left">Transactions</div>
-                  <div class="pull-right"><i class="fa fa-angle-up"></i> 5.2<sup>%</sup></div>
+                  <div class="pull-left">{{item.title}}</div>
+                  <div class="pull-right">{{item.subText}}</div>
                 </div>
                 <div class="mini-widget-body clearfix">
                   <div class="pull-left">
-                    <i class="fa fa-credit-card"></i>
+                    <i class="fa {{item.icon}}"></i>
                   </div>
-                  <div class="pull-right number">12,132</div>
+                  <div class="pull-right number">{{item.largeText}}</div>
                 </div>
                 <div class="mini-widget-footer center-align-text">
-                  <span>View All Transactions</span>
+                  <span>{{item.linkText}}</span>
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-              <div class="mini-widget">
-                <div class="mini-widget-heading clearfix">
-                  <div class="pull-left">Last Settlement</div>
-                  <div class="pull-right"><i class="fa fa-angle-up"></i> 18.3<sup>%</sup></div>
-                </div>
-                <div class="mini-widget-body clearfix">
-                  <div class="pull-left">
-                    <i class="fa fa-money"></i>
-                  </div>
-                  <div class="pull-right number">$37,807</div>
-                </div>
-                <div class="mini-widget-footer center-align-text">
-                  <span>View All Settlements</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-              <div class="mini-widget">
-                <div class="mini-widget-heading clearfix">
-                  <div class="pull-left">Disputes</div>
-                </div>
-                <div class="mini-widget-body clearfix">
-                  <div class="pull-left">
-                    <i class="fa fa-flag"></i>
-                  </div>
-                  <div class="pull-right number">0 New</div>
-                </div>
-                <div class="mini-widget-footer center-align-text">
-                  <span>You have 2 pending disputes.</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-              <div class="mini-widget mini-widget-grey">
-                <div class="mini-widget-heading clearfix">
-                  <div class="pull-left">PCI Status</div>
-                </div>
-                <div class="mini-widget-body clearfix">
-                  <div class="pull-left">
-                    <i class="fa fa-flag"></i>
-                  </div>
-                  <div class="pull-right number">Not compliant!</div>
-                </div>
-                <div class="mini-widget-footer center-align-text">
-                  <span>4 of your 7 devices need attention</span>
-                </div>
-              </div>
-            </div>
+           
+           
+           
           </div>
           <!-- Row ends -->
 
        
             
               
-                <div class="row">
+                <div class="row" ng-controller="ad_space">
 					<div class="col-xs-8">
+
 						<div class="widget">
 							<div class="widget-body">
 							  <!-- Row starts -->
 							  <div class="row">
-								<img src="/assets/img/ad_funding_equipment_205_05.jpg" class="img-responsive">
+								<img ng-src="{{ad_img}}" class="img-responsive">
 								</div>
 							  <!-- Row ends -->
 							</div>
-						</div>
-					</div>
+						</div> <!-- widget ends -->
+				
 					
-					<div class="col-xs-4">
-						 <div class="widget">
-							<div class="widget-body">
-							  <!-- Carousel
-								================================================== -->
-								<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-								  <!-- Indicators -->
-								  <ol class="carousel-indicators">
-									<li data-target="##myCarousel" data-slide-to="0" class="active"></li>
-									<li data-target="##myCarousel" data-slide-to="1"></li>
-									<li data-target="##myCarousel" data-slide-to="2"></li>
-								  </ol>
-								  <div class="carousel-inner" role="listbox">
-									<div class="item active">
-									  <img class="first-slide img-responsive" src="/assets/img/slideshows/meetStaff.jpg" >
-									  
-									</div>
-									
-									<div class="item ">
-									  <img class="first-slide img-responsive" src="/assets/img/slideshows/000000001.jpg" >
-									  <div class="container">
-										<div class="carousel-caption">
-			 
-										  <p>Katie Martin, Sterling Merchant Services Representative.</p>
-			 
-										</div>
-									  </div>
-									</div>
-									<div class="item">
-									  <img class="second-slide img-responsive" src="/assets/img/slideshows/000000002.jpg" >
-									  <div class="container">
-										<div class="carousel-caption">
-			
-										  <p>Christian Toro, Merchant Services Representative.</p>
-			 
-										   </div>
-									  </div>
-									</div>
-									<div class="item">
-									  <img class="third-slide img-responsive" src="/assets/img/slideshows/000000003.jpg" >
-									  <div class="container">
-										<div class="carousel-caption">
-										  <p>Jeff Albrechta, Director, Technical Support and Deployment.</p>
-										  </div>
-									  </div>
-									</div>
+					
+						 <div class="row">
+  
+							<!--- VOLUME SUMMARY ---> 
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							  <div class="widget">
+								<div class="widget-header">
+								  <div class="title">
+										Volume Summary
+									<span class="mini-title">
+			  
+									</span>
 								  </div>
-								  <a class="left carousel-control" href="##myCarousel" role="button" data-slide="prev">
-									<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-									<span class="sr-only">Previous</span>
-								  </a>
-								  <a class="right carousel-control" href="##myCarousel" role="button" data-slide="next">
-									<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-									<span class="sr-only">Next</span>
-								  </a>
-								</div><!-- /.carousel -->
+								  <!---<span class="tools">
+									<a class="btn btn-success btn-xs" href="##">
+									  <i class="fa fa-cog"></i>
+									</a>
+								  </span>--->
+								</div>
+								<div class="widget-body" ng-controller="merchantVolumeSummary">
+										<fusioncharts
+											width="100%" 
+											height="200"
+											type="column2d"
+											dataSource="{{datasource}}">
+										</fusioncharts>
+								</div>
+							  </div>
 							</div>
-						  </div>
-						
+							<!--- END: VOLUME SUMMARY ---> 
+	
+	
+							<!--- VOLUME TREND BY TYPE ---> 
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							  <div class="widget">
+								<div class="widget-header">
+								  <div class="title">
+									Volume by Card Type
+			 
+								  </div>
+								  <!---<span class="tools">
+									<a class="btn btn-success btn-xs" href="##">
+									  <i class="fa fa-cog"></i>
+									</a>
+								  </span>--->
+								</div>
+								<div class="widget-body" ng-controller="merchantVolumeByType">
+										<fusioncharts
+											width="100%" 
+											height="200"
+											type="mscombi2d"
+											chartid="john2"
+											dataSource="{{datasource}}">
+										</fusioncharts>
+				   
+								</div>
+							  </div>
+							</div>
+						   <!--- END: VOLUME TREND BY TYPE ---> 
+   
+						   <!--- VOLUME DETAILS ---> 
+	
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							  <div class="widget">
+								<div class="widget-header">
+								  <div class="title">
+									Volume Details (YTD)
+			 
+								  </div>
+								  <!---<span class="tools">
+									<a class="btn btn-success btn-xs" href="##">
+									  <i class="fa fa-cog"></i>
+									</a>
+								  </span>--->
+								</div>
+								<div class="widget-body">
+		  
+		  
+								   <div class="widget-stats-text">Sales: $1,405,212.18</div>
+								   <div class="widget-stats-text">Transactions:  85,017</div>
+								   <div class="widget-stats-text">Average Ticket: $16.53</div>
+								   <div class="widget-stats-text">Returns: $7,938.72</div>
+								   <div class="widget-stats-text">Net: <b>$1,397,273.46</b></div>
+		  
+								</div>
+							  </div>
+							</div>
+	
+							 <!--- END: VOLUME DETAILS --->
+	
+						</div>  <!-- end .row -->
+			
+								<!-- Row Start -->
+							<div class="row">
+							  <div class="col-lg-8 col-md-8">
+								<div class="widget">
+								  <div class="widget-header">
+									<div class="title">
+									  Deposit History
+									</div>
+									<!---<span class="tools">
+									<a class="btn btn-success btn-xs" href="##">
+									  <i class="fa fa-cog"></i>
+									</a>
+								  </span>--->
+								  </div>
+								  <div class="widget-body" ng-controller="merchantDepositHistory">
+										<fusioncharts
+											width="100%" 
+											height="200"
+											type="msline"
+											chart="{{attrs}}"
+											categories="{{categories}}"
+											dataset="{{dataset}}">
+										</fusioncharts>
+								  </div>
+								</div>
+							  </div>
+			  
+			  
+							<!--- VOLUME TREND BY TYPE ---> 
+							<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+							  <div class="widget">
+								<div class="widget-header">
+								  <div class="title">
+									Volume by Card Type
+								  </div>
+								</div>
+								<div class="widget-body" ng-controller="merchantPieVolume">
+										<fusioncharts
+											width="300" 
+											height="200"
+											type="pie3d"
+											dataSource="{{datasource}}">
+										</fusioncharts>
+								</div>
+							  </div>
+							</div>
+						   <!--- END: VOLUME TREND BY TYPE ---> 
 					</div>
-					
-					
-			  </div>
-			  <!-- Row End -->
-          
-          
-          
-
-         
-
-          <!-- Row Start -->
-          <div class="row">
-          
-          	<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
-           
-           
-           <div class="row">
-          
-          	<!--- VOLUME SUMMARY ---> 
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="widget">
-                <div class="widget-header">
-                  <div class="title">
-                   		Volume Summary
-                    <span class="mini-title">
-                      
-                    </span>
-                  </div>
-                  <!---<span class="tools">
-                    <a class="btn btn-success btn-xs" href="##">
-                      <i class="fa fa-cog"></i>
-                    </a>
-                  </span>--->
-                </div>
-                <div class="widget-body">
-                  <div id="merchantVolumeSummary" class="chart-height-md"></div>
-                </div>
-              </div>
+					<!-- Row End -->
+			
             </div>
-            <!--- END: VOLUME SUMMARY ---> 
-            
-            
-            <!--- VOLUME TREND BY TYPE ---> 
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="widget">
-                <div class="widget-header">
-                  <div class="title">
-                  	Volume by Card Type
-                  	 
-                  </div>
-                  <!---<span class="tools">
-                    <a class="btn btn-success btn-xs" href="##">
-                      <i class="fa fa-cog"></i>
-                    </a>
-                  </span>--->
-                </div>
-                <div class="widget-body">
-                  <div id="merchantVolumeCardTypes" class="chart-height-md"></div>
-                </div>
-              </div>
-            </div>
-           <!--- END: VOLUME TREND BY TYPE ---> 
-           
-           <!--- VOLUME DETAILS ---> 
-            
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-              <div class="widget">
-                <div class="widget-header">
-                  <div class="title">
-                  	Volume Details (YTD)
-                  	 
-                  </div>
-                  <!---<span class="tools">
-                    <a class="btn btn-success btn-xs" href="##">
-                      <i class="fa fa-cog"></i>
-                    </a>
-                  </span>--->
-                </div>
-                <div class="widget-body">
-                  
-                  
-      	           <div class="widget-stats-text">Sales: $1,405,212.18</div>
-      	           <div class="widget-stats-text">Transactions:  85,017</div>
-      	           <div class="widget-stats-text">Average Ticket: $16.53</div>
-      	           <div class="widget-stats-text">Returns: $7,938.72</div>
-      	           <div class="widget-stats-text">Net: <b>$1,397,273.46</b></div>
-                  
-                </div>
-              </div>
-            </div>
-            
-             <!--- END: VOLUME DETAILS --->
-            
-            
-            </div>  <!-- end .row -->
-            
-            
-             <!-- Row Start -->
-            <div class="row">
-              <div class="col-lg-12 col-md-12">
-                <div class="widget">
-                  <div class="widget-header">
-                    <div class="title">
-                      Deposit History
-                    </div>
-                    <!---<span class="tools">
-                    <a class="btn btn-success btn-xs" href="##">
-                      <i class="fa fa-cog"></i>
-                    </a>
-                  </span>--->
-                  </div>
-                  <div class="widget-body">
-                    <div id="line_chart"></div>
-                  </div>
-                  
-            
-                </div>
-              </div>
-            </div>
-            <!-- Row End -->
-            	
-            	
-            	
-            	
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-            
-            
+			<div class="col-xs-4">
+						 
+						 
+						    
 			 <!--- ANNOUNCEMENTS --->
             
         		 <div class="widget">
@@ -394,20 +310,56 @@ There are no upfront or hidden fees.  If no money is recovered on your behalf, t
 							</p>
 						  </div>
 						</li>
+						<li class="announcement-list warning">
+						  <div class="detail-info">
+							<a href="" class="header">
+							  <i class="fa fa-microphone"></i> May 2015 Statement Now Posted to the Business Center
+							</a>
+							<p class="message">
+							 Your May 2015 Statement is now available  under the Statements tab. We appreciate your business!
+							</p>
+						  </div>
+						</li>
+						<li class="announcement-list info">
+						  <div class="detail-info">
+							<a href="" class="header">
+							  <i class="fa fa-bullhorn"></i>  American Express Acceptance Agreement Now Online  
+							</a>
+							<p class="message">
+							 Effective with the October 2014 mandates, American Express has made changes to the Card Acceptance Agreement (CAA). You may now view your updated American Express Acceptance Agreement online in Business Center's Document Center. Access the Document Center, select Document Search and enter keywords, One Point.
+For questions or more information, please contact Sterling's Merchant Services team at 800-383-0561 or via e-mail at <a href="mailto:">merchant.services@sterlingpayment.com</a>
+
+							</p>
+						  </div>
+						</li>
+						<li class="announcement-list success">
+						  <div class="detail-info">
+							<a href="" class="header">
+							   <i class="fa fa-microphone"></i> There is Still Time to Enroll
+							</a>
+							<p class="message">
+							  As your payment processor, Sterling Payment Technologies, LLC has partnered with MCAG, a class action settlement expert, to streamline the filing process and secure recoveries for our valued merchants from the "Visa&reg;/MasterCard&reg; Interchange Fee Class Action Settlement.&rdquo;
+The lawsuit claims that merchants paid more fees than they should have for accepting Visa&reg; and MasterCard&reg; as payment from consumers during the period between January 1, 2004 and November 28, 2012.  If your business accepted Visa&reg; or MasterCard&reg; credit or debit payments in the U.S. during this period of time, you may be eligible to recover funds from this approved $5+ billion Settlement.
+ <br/><br/>
+There are no upfront or hidden fees.  If no money is recovered on your behalf, then no money is owed to MCAG for this service.  Act now, and enroll today in the MCAG Settlement Recovery Service.  For additional information, class members may visit http://www.paymentcardsettlement.com/, the Court-approved website for this case.
+
+							</p>
+						  </div>
+						</li>
 				   
 					  </ul>
 					</div>
          
              <!--- END: ANNOUNCEMENTS --->
             
-            </div>
             
-            
-          </div>
-          <!-- Row End -->
-
-
-
+				
+					</div>
+					
+					
+			  </div>
+			  <!-- Row End -->
+          
 
 	</div> 
 </div>

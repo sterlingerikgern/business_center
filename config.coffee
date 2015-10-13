@@ -13,7 +13,13 @@ exports.config =
       joinTo:
         'js/app.js': /^app/
         'js/vendor.js': /^(bower_components|vendor)/
-
+      order:
+        before: [
+          'vendor/fusioncharts/fusioncharts.js'
+        ], 
+        after: [
+          'vendor/fusioncharts/angular-fusioncharts.js'
+        ]
     stylesheets:
       joinTo:
         'css/app.css': /^(app|vendor|bower_components)/
@@ -31,4 +37,4 @@ exports.config =
   	   path_transform: (path) -> path.replace('app/partials/', 'partials/')
     
   # Enable or disable minifying of result js / css files.
-   minify: true
+   minify: false
