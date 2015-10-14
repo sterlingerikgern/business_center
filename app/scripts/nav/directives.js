@@ -6,16 +6,21 @@ angular.module('app.directives')
 .directive('navTabs', function() {
   return {
     restrict: 'EA',
-    templateUrl: 'partials/nav/navTabs.html',
+    templateUrl: 'partials/nav/tabs.html',
     controller: 'navTabsCtrl',
     controllerAs: 'tabs'
   };
-}).directive('navSub', function() {
+}).directive('navHierarchy', function() {
   return {
     restrict: 'EA',
-    templateUrl: 'partials/nav/navSub.html',
-    controller: 'navSubCtrl',
-    controllerAs: 'sub'
+    templateUrl: 'partials/nav/hierarchy.html',
+    controller: 'navHierarchyCtrl',
+    controllerAs: 'hierarchy'
+  };
+}).directive('navDateRange', function() {
+  return {
+    restrict: 'EA',
+    templateUrl: 'partials/nav/daterange.html'
   };
 });
    

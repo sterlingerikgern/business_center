@@ -2,7 +2,7 @@
 
 var $routeProviderReference;
 
-angular.module('app', ['ngCookies', 'ngResource', 'ngRoute', 'app.controllers', 'app.directives', 'app.filters', 'app.services', 'templates', 'ui.bootstrap','nya.bootstrap.select','daterangepicker', 'ng-fusioncharts'])
+angular.module('app', ['ngCookies', 'ngResource', 'ngRoute', 'app.controllers', 'app.directives', 'app.filters', 'app.services', 'templates', 'ui.bootstrap','nya.bootstrap.select','daterangepicker', 'ng-fusioncharts', 'ui.grid', 'ui.grid.infiniteScroll'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProviderReference = $routeProvider;
 }]);

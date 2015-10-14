@@ -1,73 +1,90 @@
+<!-- Sub Nav End -->
+<div class="sub-nav <!---hidden-sm hidden-xs--->">
 
-  <h2>CFO Dashboard</h2>
+	<div class="col-xs-12 col-sm-4">
+		<nav-hierarchy></nav-hierarchy>
+	</div>
+	<div class="col-xs-12 col-sm-3">
+		<nav-date-range></nav-date-range>
+	</div>
+
+</div>
+<!-- Sub Nav End -->
+        
+        
+<!-- Dashboard Wrapper Start -->
+<div class="dashboard-wrapper-lg">
+	<div class="view-container">
+
+						  <h2>CFO Dashboard</h2>
   
 
-<div class="row marketing">
-  <datepicker ng-model="start" show-weeks="false"></datepicker> {{start | date}}
-</div>
+						<div class="row marketing">
+						  <datepicker ng-model="start" show-weeks="false"></datepicker> {{start | date}}
+						</div>
 
 
 
-<div class="row marketing">
-  <tabset>
-  	<tab heading="A">
-  		Hello A!
-  	</tab>
-  	<tab heading="B">
-  		Hello B!
-  	</tab>
-  	<tab heading="C">
-  		Hello C!
-  	</tab>
-  	<tab heading="D">
-  		Hello D!
-  	</tab>
-  </tabset> 
-</div>
+						<div class="row marketing">
+						  <tabset>
+							<tab heading="A">
+								Hello A!
+							</tab>
+							<tab heading="B">
+								Hello B!
+							</tab>
+							<tab heading="C">
+								Hello C!
+							</tab>
+							<tab heading="D">
+								Hello D!
+							</tab>
+						  </tabset> 
+						</div>
 
 
-<div ng-controller="MainCtrl">
+						<div ng-controller="MainCtrl">
 
-	<div class="row marketing" >
-	  <div class="btn-group">
-			<button type="button" class="btn btn-primary" ng-model="val" btn-radio="'A'">A</button>
-			<button type="button" class="btn btn-primary" ng-model="val" btn-radio="'B'">B</button>
-			<button type="button" class="btn btn-primary" ng-model="val" btn-radio="'C'">C</button>
-	  </div>
+							<div class="row marketing" >
+							  <div class="btn-group">
+									<button type="button" class="btn btn-primary" ng-model="val" btn-radio="'A'">A</button>
+									<button type="button" class="btn btn-primary" ng-model="val" btn-radio="'B'">B</button>
+									<button type="button" class="btn btn-primary" ng-model="val" btn-radio="'C'">C</button>
+							  </div>
+							</div>
+
+							<div class="row marketing">
+							  <input type="text" ng-model="selected" typeahead="state for state in states" class="form-control">
+							</div>
+
+	
+	
+	
+
+								  <div ng-controller="TodoCtrl"><span>{{remaining()}} of {{todos.length}} remaining</span> [<a href="" ng-click="archive()">archive</a>]
+									<ul class="unstyled">
+									  <li ng-repeat="todo in todos">
+										<label class="checkbox inline">
+										  <input type="checkbox" ng-model="todo.done"/><span class="done{{todo.done}}">{{todo.text}}</span>
+										</label>
+									  </li>
+									</ul>
+
+
+									<form ng-submit="addTodo()" class="form-inline">
+									  <p>
+										<input type="text" ng-model="todoText" size="30" placeholder="add new todo here"/>
+										<input type="submit" value="add" class="btn btn-primary"/>
+									  </p>
+									</form>
+								  </div>
+
+
+
+	
+						</div>
+
+
 	</div>
-
-	<div class="row marketing">
-	  <input type="text" ng-model="selected" typeahead="state for state in states" class="form-control">
-	</div>
-
-	
-	
-	
-
-		  <div ng-controller="TodoCtrl"><span>{{remaining()}} of {{todos.length}} remaining</span> [<a href="" ng-click="archive()">archive</a>]
-			<ul class="unstyled">
-			  <li ng-repeat="todo in todos">
-				<label class="checkbox inline">
-				  <input type="checkbox" ng-model="todo.done"/><span class="done{{todo.done}}">{{todo.text}}</span>
-				</label>
-			  </li>
-			</ul>
-
-
-			<form ng-submit="addTodo()" class="form-inline">
-			  <p>
-				<input type="text" ng-model="todoText" size="30" placeholder="add new todo here"/>
-				<input type="submit" value="add" class="btn btn-primary"/>
-			  </p>
-			</form>
-		  </div>
-
-		<div class="row marketing">
-		  <datepicker ng-model="start" show-weeks="false"></datepicker> {{start | date}}
-		</div>
-
-
-
-	
 </div>
 

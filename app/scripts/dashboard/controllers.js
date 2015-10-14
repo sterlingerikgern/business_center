@@ -264,115 +264,163 @@ angular.module('app.controllers')
 });
 
 
-	angular.module('app.controllers')
-	.controller('merchantDepositHistory', function ($scope) {
-			$scope.attrs = {
-				"numberprefix": "$",
-				"plotgradientcolor": "",
-				"bgcolor": "FFFFFF",
-				"showalternatehgridcolor": "0",
-				"divlinecolor": "CCCCCC",
-				"showvalues": "0",
-				"showcanvasborder": "0",
-				"canvasborderalpha": "0",
-				"canvasbordercolor": "CCCCCC",
-				"canvasborderthickness": "1",
-				"yaxismaxvalue": "30000",
-				"captionpadding": "30",
-				"linethickness": "3",
-				"yaxisvaluespadding": "15",
-				"legendshadow": "1",
-				"legendborderalpha": "0",
-				"paletteColors": "#0075c2,#00c260",
-				"showborder": "0",
-				"bgAlpha" : "50",
-				"bgColor" : "f7f7f7",
-			};
+angular.module('app.controllers')
+.controller('merchantDepositHistory', function ($scope) {
+		$scope.attrs = {
+			"numberprefix": "$",
+			"plotgradientcolor": "",
+			"bgcolor": "FFFFFF",
+			"showalternatehgridcolor": "0",
+			"divlinecolor": "CCCCCC",
+			"showvalues": "0",
+			"showcanvasborder": "0",
+			"canvasborderalpha": "0",
+			"canvasbordercolor": "CCCCCC",
+			"canvasborderthickness": "1",
+			"yaxismaxvalue": "30000",
+			"captionpadding": "30",
+			"linethickness": "3",
+			"yaxisvaluespadding": "15",
+			"legendshadow": "1",
+			"legendborderalpha": "0",
+			"paletteColors": "#0075c2,#00c260",
+			"showborder": "0",
+			"bgAlpha" : "50",
+			"bgColor" : "f7f7f7",
+		};
 
-			$scope.categories = [{
-				"category": [{
-					"label": "Jan"
+		$scope.categories = [{
+			"category": [{
+				"label": "Jan"
+			}, {
+				"label": "Feb"
+			}, {
+				"label": "Mar"
+			}, {
+				"label": "Apr"
+			}, {
+				"label": "May"
+			}, {
+				"label": "Jun"
+			}, {
+				"label": "Jul"
+			}, {
+				"label": "Aug"
+			}, {
+				"label": "Sep"
+			}, {
+				"label": "Oct"
+			}, {
+				"label": "Nov"
+			}, {
+				"label": "Dec"
+			}]
+		}];
+
+		$scope.dataset = [{
+				"seriesname": "2013",
+				"data": [{
+					"value": "22400"
 				}, {
-					"label": "Feb"
+					"value": "24800"
 				}, {
-					"label": "Mar"
+					"value": "21800"
 				}, {
-					"label": "Apr"
+					"value": "21800"
 				}, {
-					"label": "May"
+					"value": "24600"
 				}, {
-					"label": "Jun"
+					"value": "27600"
 				}, {
-					"label": "Jul"
+					"value": "26800"
 				}, {
-					"label": "Aug"
+					"value": "27700"
 				}, {
-					"label": "Sep"
+					"value": "23700"
 				}, {
-					"label": "Oct"
+					"value": "25900"
 				}, {
-					"label": "Nov"
+					"value": "26800"
 				}, {
-					"label": "Dec"
+					"value": "24800"
 				}]
-			}];
+			},
 
-			$scope.dataset = [{
-					"seriesname": "2013",
-					"data": [{
-						"value": "22400"
-					}, {
-						"value": "24800"
-					}, {
-						"value": "21800"
-					}, {
-						"value": "21800"
-					}, {
-						"value": "24600"
-					}, {
-						"value": "27600"
-					}, {
-						"value": "26800"
-					}, {
-						"value": "27700"
-					}, {
-						"value": "23700"
-					}, {
-						"value": "25900"
-					}, {
-						"value": "26800"
-					}, {
-						"value": "24800"
-					}]
-				},
-
-				{
-					"seriesname": "2012",
-					"data": [{
-						"value": "10000"
-					}, {
-						"value": "11500"
-					}, {
-						"value": "12500"
-					}, {
-						"value": "15000"
-					}, {
-						"value": "16000"
-					}, {
-						"value": "17600"
-					}, {
-						"value": "18800"
-					}, {
-						"value": "19700"
-					}, {
-						"value": "21700"
-					}, {
-						"value": "21900"
-					}, {
-						"value": "22900"
-					}, {
-						"value": "20800"
-					}]
-				}
-			];
+			{
+				"seriesname": "2012",
+				"data": [{
+					"value": "10000"
+				}, {
+					"value": "11500"
+				}, {
+					"value": "12500"
+				}, {
+					"value": "15000"
+				}, {
+					"value": "16000"
+				}, {
+					"value": "17600"
+				}, {
+					"value": "18800"
+				}, {
+					"value": "19700"
+				}, {
+					"value": "21700"
+				}, {
+					"value": "21900"
+				}, {
+					"value": "22900"
+				}, {
+					"value": "20800"
+				}]
+			}
+		];
 });
+
+
+
+
+
+
+
+angular.module('app.controllers')
+.controller('announcementCtrl', ['$scope', '$sce', function ($scope, $sce) {
+		$scope.announcements = [
+			{
+				icon: 'fa-microphone',
+				title: 'May 2015 Statement Now Posted to the Business Center',
+				body: $sce.trustAsHtml('Your May 2015 Statement is now available under the Statements tab. We appreciate your business!'),
+				image: '',
+				url: '',
+				color: 'warning',
+			},{
+				icon: 'fa-bullhorn',
+				title: 'American Express Acceptance Agreement Now Online',
+				body: $sce.trustAsHtml('Effective with the October 2014 mandates, American Express has made changes to the Card Acceptance Agreement (CAA). You may now view your updated American Express Acceptance Agreement online in Business Center\'s Document Center. Access the Document Center, select Document Search and enter keywords, One Point. For questions or more information, please contact Sterling\'s Merchant Services team at 800-383-0561 or via e-mail at merchant.services@sterlingpayment.com'),
+				image: '',
+				url: '',
+				color: 'info',
+			},{
+				icon: 'fa-microphone',
+				title: 'There is Still Time to Enroll',
+				body: $sce.trustAsHtml('As your payment processor, Sterling Payment Technologies, LLC has partnered with MCAG, a class action settlement expert, to streamline the filing process and secure recoveries for our valued merchants from the "Visa®/MasterCard® Interchange Fee Class Action Settlement.” The lawsuit claims that merchants paid more fees than they should have for accepting Visa® and MasterCard® as payment from consumers during the period between January 1, 2004 and November 28, 2012. If your business accepted Visa® or MasterCard® credit or debit payments in the U.S. during this period of time, you may be eligible to recover funds from this approved $5+ billion Settlement. <br/><br/>There are no upfront or hidden fees. If no money is recovered on your behalf, then no money is owed to MCAG for this service. Act now, and enroll today in the MCAG Settlement Recovery Service. For additional information, class members may visit http://www.paymentcardsettlement.com/, the Court-approved website for this case.'),
+				image: '',
+				url: '',
+				color: 'success',
+			},{
+				icon: 'fa-microphone',
+				title: 'May 2015 Statement Now Posted to the Business Center',
+				body: $sce.trustAsHtml('Your May 2015 Statement is now available under the Statements tab. We appreciate your business!'),
+				image: '',
+				url: '',
+				color: 'warning',
+			},{
+				icon: 'fa-microphone',
+				title: 'May 2015 Statement Now Posted to the Business Center',
+				body: $sce.trustAsHtml('Your May 2015 Statement is now available under the Statements tab. We appreciate your business!'),
+				image: '',
+				url: '',
+				color: 'warning',
+			}
+		];
+}]);

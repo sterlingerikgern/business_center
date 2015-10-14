@@ -1,0 +1,39 @@
+<div ng-controller="transactionsCtrl">
+
+    <!-- Sub Nav End -->
+	<div class="sub-nav <!--hidden-sm hidden-xs-->">
+
+		<div class="col-xs-12 col-sm-4">
+			<nav-hierarchy></nav-hierarchy>
+		</div>
+		<div class="col-xs-12 col-sm-3">
+			<nav-date-range></nav-date-range>
+		</div>
+		
+		
+		<div class="col-xs-12 col-sm-4">
+		
+			<button uib-popover-template="filterPopover.templateUrl" popover-title="{{filterPopover.title}}" popover-placement="bottom" type="button" class="btn btn-md btn-info"><i class="fa fa-filter"></i> Filters</button>
+
+			<button uib-popover-template="columnsPopover.templateUrl" popover-title="{{columnsPopover.title}}" popover-placement="bottom" type="button" class="btn btn-md btn-primary"><i class="fa fa-eye-slash"></i> Columns</button>
+
+			<button uib-popover-template="summarizePopover.templateUrl" popover-title="{{summarizePopover.title}}" popover-placement="bottom" type="button" class="btn btn-md btn-warning"><i class="fa fa-sitemap"></i> Summarize</button>
+
+			<button uib-popover-template="exportPopover.templateUrl" popover-title="{{exportPopover.title}}" popover-placement="bottom" type="button" class="btn btn-md btn-success"><i class="fa fa-download"></i> Export</button>
+ 
+		</div>   
+		  
+	</div>
+	<!-- Sub Nav End -->
+        
+        
+		
+	<!-- Wrapper Start -->
+	<div class="dashboard-wrapper-lg">
+		<div class="view-container">
+			  <div ui-grid="gridOptions" class="grid" ui-grid-infinite-scroll></div>
+		</div> 
+	</div>
+	<!-- Wrapper End -->
+
+</div>

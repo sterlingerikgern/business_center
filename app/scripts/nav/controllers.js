@@ -2,7 +2,7 @@
 
 /* Controllers */
 angular.module('app.controllers')
-.controller('navSubCtrl', [
+.controller('navHierarchyCtrl', [
   '$scope', function($scope) {
     return $scope;
   }

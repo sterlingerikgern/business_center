@@ -4,7 +4,7 @@
 }
 
 ul.announcements {
-  height: 800px;
+  height: 950px;
   overflow: auto;}
   
 .capitalize {
@@ -122,3 +122,15 @@ ul.announcements {
  .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a {
  	background-color: #83b488 !important;
  }
+ 
+
+
+
+.ui-grid {
+  position: absolute;
+  height: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
