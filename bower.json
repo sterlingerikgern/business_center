@@ -23,7 +23,7 @@
     "components-font-awesome": "~4.4.0",
     "nya-bootstrap-select": "~2.1.2",
     "angular-daterangepicker": "~0.1.17",
-    "angular-ui-grid": "~3.0.7"
+    "angular-ui-grid": ">=3.0.7"
   },
   "overrides": {
     "angular-mocks": {
