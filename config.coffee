@@ -2,7 +2,7 @@ exports.config =
   # See docs at https://github.com/brunch/brunch/blob/stable/docs/config.md.
   conventions:
     assets:  /^app\/assets\//
-    ignored: /^(bower_components\/angular-ui-grid\/less?|app\/css\/overrides|(.*?\/)?[_]\w*)/
+    ignored: /^(bower_components\/angular-ui-grid\/less\/|app\/css\/overrides|(.*?\/)?[_]\w*)/
   modules:
     definition: false
     wrapper: false
