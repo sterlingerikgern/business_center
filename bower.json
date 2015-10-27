@@ -6,7 +6,10 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "components"
+    "components",
+    "bower_components",
+    "test",
+    "tests"
   ],
   "dependencies": {
     "console-polyfill": "~0.1.0",
@@ -23,7 +26,8 @@
     "components-font-awesome": "~4.4.0",
     "nya-bootstrap-select": "~2.1.2",
     "angular-daterangepicker": "~0.1.17",
-    "angular-ui-grid": ">=3.0.7"
+    "angular-ui-grid": ">=3.0.7",
+    "fingerprintjs2": ">=0.9.0"
   },
   "overrides": {
     "angular-mocks": {

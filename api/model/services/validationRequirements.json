@@ -1,0 +1,130 @@
+{
+    "login": [
+        {
+            "parameter": "username",
+            "message": "101.1: Username is missing or has an invalid length.",
+            "type": "string",
+            "minlength": 3,
+            "maxlength": 500,
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "password",
+            "message": "101.2: Password is missing or has an invalid length.",
+            "type": "string",
+            "minlength": 3,
+            "maxlength": 20,
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "fingerprint",
+            "message": "101.3: Fingerprint is missing or has an invalid length.",
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 400,
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "token",
+            "type": "jwt",
+            "message": "101.4: Token is invalid.",
+            "required" : false,
+            "errorcode" : 400
+        }
+    ],
+    "routes": [
+        {
+            "parameter": "fingerprint",
+            "message": "102.1: Fingerprint is missing or has an invalid length.",
+            "type": "string",
+            "minlength": 1,
+            "maxlength": 400,
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "token",
+            "type": "jwt",
+            "message": "102.2: Token is missing or is invalid.",
+            "required" : true,
+            "errorcode" : 400
+        }
+    ],
+    "transactions": [
+        {
+            "parameter": "SessionToken",
+            "message": "105: SessionToken is missing or has an invalid string value.",
+            "type": "guid",
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "keyHID",
+            "message": "106: A keyHID is missing or has an invalid string value.",
+            "type": "guid",
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "dateStart",
+            "message": "107: A Start Date is missing or is an invalid date.",
+            "type": "date",
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "dateEnd",
+            "message": "108: An End Date is missing or is an invalid date.",
+            "type": "date",
+            "required" : true,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "filter_batch",
+            "message": "109: Invalid batch number.",
+            "type": "integer",
+            "required" : false,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "filter_type",
+            "message": "110: Invalid filter type.",
+            "type": "string",
+            "required" : false,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "filter_item_no",
+            "message": "111: Invalid item number.",
+            "type": "integer",
+            "required" : false,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "filter_item_no",
+            "message": "112: Item number must be between 0 and 1,000,000,000.",
+            "type": "range",
+            "required" : false,
+            "min": 0,
+            "max": 1000000000,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "filter_card_no",
+            "message": "113: Invalid card number.",
+            "type": "integer",
+            "required" : false,
+            "errorcode" : 400
+        },
+        {
+            "parameter": "token",
+            "message": "499: Authorization Token is Required.",
+            "type": "jwt",
+            "required" : true,
+            "errorcode" : 499
+        }
+    ]
+}

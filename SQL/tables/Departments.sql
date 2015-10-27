@@ -1,0 +1,29 @@
+USE [Portal]
+GO
+
+/****** Object:  Table [dbo].[Departments]    Script Date: 10/25/2015 2:06:04 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+CREATE TABLE [dbo].[Departments](
+	[DepartmentID] [int] IDENTITY(1,1) NOT NULL,
+	[DepartmentName] [varchar](50) NOT NULL,
+	[OldDepartmentID] [int] NULL,
+ CONSTRAINT [PK_departments] PRIMARY KEY CLUSTERED 
+(
+	[DepartmentID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

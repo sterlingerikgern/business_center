@@ -385,6 +385,7 @@ angular.module('app.controllers')
 
 angular.module('app.controllers')
 .controller('announcementCtrl', ['$scope', '$sce', function ($scope, $sce) {
+
 		$scope.announcements = [
 			{
 				icon: 'fa-microphone',

@@ -1,0 +1,30 @@
+USE [Portal]
+GO
+
+/****** Object:  Table [dbo].[WebGroup]    Script Date: 10/25/2015 2:06:38 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+CREATE TABLE [dbo].[WebGroup](
+	[GroupID] [int] IDENTITY(1,1) NOT NULL,
+	[GroupName] [varchar](250) NULL,
+	[DateLastUpdate] [datetime] NULL,
+	[OldGroupID] [int] NULL,
+ CONSTRAINT [PK_portal_groups] PRIMARY KEY CLUSTERED 
+(
+	[GroupID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

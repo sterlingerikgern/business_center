@@ -1,0 +1,12 @@
+INSERT INTO [dbo].[WebUserTypes]
+           ([TypeName]
+           ,[OldTypeId])
+     SELECT 	[typeName]
+     			,[typeId]
+		FROM 	[sterling].[portal_user_types]
+
+  UPDATE 	wt
+  SET		wt.typeId = dp.typeId
+  FROM		portal.dbo.WebUserTypes as wt
+  			join portal.dbo.WebUserTypes as dp on dp.OldTypeId = wt.typeId;
+			

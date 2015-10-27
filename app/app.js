@@ -9,10 +9,11 @@ angular.module('app', ['ngCookies', 'ngResource', 'ngRoute', 'app.controllers', 
 
 angular
 .module('app')
+
 .run(['$rootScope', '$http', '$route', '$log', function($rootScope, $http, $route, $log) {
     //getting routes
    
-    $http.get('/routes.json').success(function (data) {
+    $http({url: '/routes.json', method: 'GET', skipAuthorization: true}).success(function (data) {
 		//$log.debug(data);
 		angular.forEach(data, function (route) {
 			$routeProviderReference.when( route.url, { templateUrl: route.template } );

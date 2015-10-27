@@ -1,0 +1,453 @@
+<cfparam name="attributes.entitytypeid" default="10">
+
+<cfoutput>	       
+<input type="hidden" value="#session.auth.parentEntityID#" name="filter_ENTITYIDLIST" id="filter_ENTITYIDLIST">  
+<input type="hidden" value="#session.auth.parentEntityID#" name="filter_EXCLUDEENTITYIDLIST" id="filter_EXCLUDEENTITYIDLIST"> 
+<input type="hidden" value="#attributes.entitytypeid#" name="filter_ENTITYTYPEID" id="filter_ENTITYTYPEID"> 
+
+<div class="col-sm-12">
+	<div class="portlet">
+		<div class="portlet-header">
+			<h3><i class="fa fa-filter"></i>Filters</h3>
+				<ul class="portlet-tools pull-right">
+					<li>
+						<div class="btn-group">
+						  <button type="button" class="btn btn-xs  dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-cog"></i>&nbsp;<span class="">Advanced</span> <span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu" role="menu">
+							<li><a href="javascript:;" id="toggle-filters-btn"><i class="fa fa-square-o"></i> Show Advanced Filters</a></li>
+							<li class="divider"></li>
+							<li><a href="javascript:;" id="clear-filters-btn"><i class="fa fa-undo"></i> Clear Filters</a></li>
+						  </ul>
+						</div>
+					</li>
+				</ul>		
+		</div> <!-- /.portlet-header -->	
+		<div class="portlet-content">
+
+	
+
+
+		<div class="row" id="filters_include"></div>
+		<div class="row" id="filters_exclude" style="display:none"></div>
+
+		
+		<cfif attributes.entitytypeid IS "10"> 
+		<div class="row" id="filters_other" style="display:none">
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select name="filter_BIRTHDAYDAYS" id="filter_BIRTHDAYDAYS"  class="form-control select2-input input-sm">
+					<option value=""></option>
+					<option value="7" class="birthday">Birthday Next Week</option>
+					<option value="30" class="birthday">Birthday Next Month</option>
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select name="filter_ANNIVERSARYDAYS" id="filter_ANNIVERSARYDAYS" class="form-control select2-input input-sm">
+					<option value=""></option>
+					<option value="7" class="Anniversary">Anniversary Next Week</option>
+					<option value="30" class="Anniversary">Anniversary Next Month</option>
+				</select>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-6">
+				<select name="filter_ACTIVITYDAYRANGE" id="filter_ACTIVITYDAYRANGE" class="form-control select2-input input-sm">
+					<option value=""></option>
+					<option value="-180:-90" class="inactive">Inactive 90 to 180 days ago</option>
+					<option value="-89:-60" class="inactive">Inactive 60 to 89 days ago</option>
+					<option value="-59:-30" class="inactive">Inactive 30 to 59 days ago</option>
+					<option value="-29:-15" class="inactive">Inactive 15 to 29 days ago</option>
+					<option value="15:0" class="active">Active within 15 days</option>
+					<option value="30:0" class="active">Active within 30 days</option>
+					<option value="60:0" class="active">Active within 60 days</option>
+					<option value="90:0" class="active">Active within 90 days</option>
+				</select>
+			</div>
+		</div>
+		</cfif>
+		
+		<div class="row"  id="filters_keyword"  style="display:none">
+			<div class="col-sm-12">
+				<div class="input-group">
+					<input id="filter_KEYWORDS" type="text" class="form-control input-sm" name="keywords" placeholder="Keyword Search..." />
+					<span class="input-group-btn">
+						<button id="support-search-btn" class="btn btn-primary btn-sm" type="button"><i class="fa fa-search"></i></button>
+					</span>
+				</div>
+			</div>
+		</div>
+		
+		</div>
+	</div>
+</div>
+
+<cfset caller.rc.js_libs = listPrepend(caller.rc.js_libs, "/assets/js/plugins/select2/select2.min.js")>
+<cfset caller.rc.css_libs = listPrepend(caller.rc.css_libs, "/assets/js/plugins/select2/select2.css")>
+
+</cfoutput>	
+
+<cfsavecontent variable="caller.rc.jquery">
+<cfoutput>		
+#caller.rc.jquery#
+
+var colsPerRow = 3;
+var currentRow = 0;
+var colCount = 0;
+var totalRecords = 0;
+var keywords = '';
+
+var selectedIncludes = $.parseJSON(localStorage.getItem("selectedIncludes"));
+var selectedExcludes = $.parseJSON(localStorage.getItem("selectedExcludes"));
+var advancedFiltersVisibility = $.parseJSON(localStorage.getItem("advancedFiltersVisibility"));
+var BirthdayDays = $.parseJSON(localStorage.getItem("BirthdayDays"));
+var AnniversaryDays = $.parseJSON(localStorage.getItem("AnniversaryDays"));
+var ActivityDayRange = $.parseJSON(localStorage.getItem("ActivityDayRange"));
+//var keywords = $.parseJSON(localStorage.getItem("keywords"));
+var selectedMemberIDlist = $.parseJSON(localStorage.getItem("selectedMemberIDlist_#caller.rc.action#"));
+
+
+if(selectedIncludes == null || selectedIncludes == undefined) {
+	selectedIncludes = ['#session.auth.PARENTENTITYID#'];
+}
+
+
+<cfif IsDefined("caller.rc.lockToEntityid")>
+
+	<cfinvoke component="#application.cfcs["perkz_global"]#" method="GetEntityParentIDs" returnvariable="rc.parentList" >	
+		<cfinvokeargument name="entityID" value="#caller.rc.lockToEntityid#">
+	</cfinvoke>
+	selectedIncludes = [];
+	
+	var parentsList = '#rc.parentList#';
+	parentsList = parentsList.replace(/\s+/g, '');
+	
+	var parentsListArray = parentsList.split(',');	
+	parentsListArray.push('#caller.rc.lockToEntityid#');
+	
+	console.log(selectedIncludes);
+	for(i in parentsListArray) {
+		console.log($.inArray( parentsListArray[i], selectedIncludes ));
+		if($.inArray( parentsListArray[i], selectedIncludes )  == -1){
+		
+			selectedIncludes.push(parentsListArray[i]);
+		}
+	}
+</cfif>
+
+
+
+
+
+if(selectedExcludes == null || selectedExcludes == undefined) {
+	selectedExcludes = [];
+}
+
+if(advancedFiltersVisibility == null || advancedFiltersVisibility == undefined) {
+	advancedFiltersVisibility = false;
+}
+
+/*************************************************************************/
+//  FUNC:  SAVE STATE //
+/*************************************************************************/
+
+$saveState = function() {	
+	localStorage.setItem("selectedIncludes", JSON.stringify(selectedIncludes));
+	localStorage.setItem("selectedExcludes", JSON.stringify(selectedExcludes));
+	localStorage.setItem("advancedFiltersVisibility", JSON.stringify(advancedFiltersVisibility));
+	localStorage.setItem("BirthdayDays", JSON.stringify(BirthdayDays));
+	localStorage.setItem("AnniversaryDays", JSON.stringify(AnniversaryDays));
+	localStorage.setItem("ActivityDayRange", JSON.stringify(ActivityDayRange));
+	//localStorage.setItem("keywords", JSON.stringify(keywords));
+	localStorage.setItem("selectedMemberIDlist_#caller.rc.action#", JSON.stringify(selectedMemberIDlist));
+
+	}	
+
+
+/*************************************************************************/
+//  FUNC:  DISPLAY FILTER OPTIONS //
+/*************************************************************************/
+
+$displayFilters = function(){
+	
+	var iconObj = $('##toggle-filters-btn > i');
+ 
+	if(advancedFiltersVisibility){
+		iconObj.removeClass('fa-square-o');
+		iconObj.addClass('fa-check-square-o');
+		$('##filters_keyword').show();
+		$('##filters_other').show();
+		$('##filters_exclude').show(); 
+	} else {
+		iconObj.removeClass('fa-check-square-o');
+		iconObj.addClass('fa-square-o');
+		$('##filters_keyword').hide();
+		$('##filters_other').hide();
+		$('##filters_exclude').hide();
+	}
+ 		
+ 	if($('##filters_exclude > .col-sm-6:visible').length == 0) {
+			$('##filters_exclude').hide(); 
+		}	
+	$saveState();
+}
+
+/*************************************************************************/
+//  FUNC:  RECURSIVE REMOVE  //
+/*************************************************************************/
+
+$recursiveRemove = function(removedID) {
+	selectedIncludes.remove(removedID);
+	for(j in hByLevel){ 
+		if(hByLevel[j].PARENTENTITYID == removedID && $.inArray(hByLevel[j].ENTITYID, selectedIncludes ) >= 0 ) $recursiveRemove(hByLevel[j].ENTITYID);
+	}
+}	
+
+/*************************************************************************/
+//  FUNC:  FIND LEAFS FOR INCLUDES  //
+/*************************************************************************/
+
+$findLeafs_includes = function() {
+	var selectedParentIDs_include = [];
+	var selectedEntityIDs_include = [];
+	var stuffToSend_include = [];
+	var i = 0;
+	for (j=highestLevel;j>=lowestLevel;j--) { <!--- begin for loop #3 --->
+		var selection_include = $('##include_'+j +' option:selected');
+		
+		$(selection_include).each(function(e){ 
+			selectedParentIDs_include.push($(selection_include[e]).attr('parentEntityID'));
+			selectedEntityIDs_include.push($(selection_include[e]).attr('value'));
+		}); 		
+	}
+		jQuery.grep(selectedEntityIDs_include, function(el) {
+				if (jQuery.inArray(el, selectedParentIDs_include) == -1) stuffToSend_include.push(el);
+				i++;
+			});
+
+		if(stuffToSend_include == ''){
+			stuffToSend_include = [#session.auth.parentEntityID#];
+		}
+			$('##filter_ENTITYIDLIST').val(stuffToSend_include).trigger('change');	
+		
+		return stuffToSend_include;
+}	
+
+/*************************************************************************/
+//  FUNC:  FIND LEAFS FOR EXCLUDES  //
+/*************************************************************************/
+
+$findLeafs_excludes = function() {
+	var selectedParentIDs_exclude = [];
+	var selectedEntityIDs_exclude = [];
+	var stuffToSend_exclude = [];
+	var i = 0;
+	for (j=highestLevel;j>=lowestLevel;j--) { <!--- begin for loop #3 --->
+		var selection_exclude = $('##exclude_'+j +' option:selected');
+		
+		$(selection_exclude).each(function(e){ 
+			selectedParentIDs_exclude.push($(selection_exclude[e]).attr('parentEntityID'));
+			selectedEntityIDs_exclude.push($(selection_exclude[e]).attr('value'));
+		}); 		
+	}
+		jQuery.grep(selectedEntityIDs_exclude, function(el) {
+			if (jQuery.inArray(el, selectedParentIDs_exclude) == -1) stuffToSend_exclude.push(el);
+			i++;
+		});
+
+		$('##filter_EXCLUDEENTITYIDLIST').val(stuffToSend_exclude).trigger('change');
+		return stuffToSend_exclude;
+}	
+
+/*************************************************************************/
+//  FUNC:  FILL IN THE FILTER OPTIONS  //
+/*************************************************************************/
+
+$fillOptions = function(in_ex, addedID, removedID) {
+
+	if(in_ex == 'excludes' && addedID) {
+		selectedExcludes.push(addedID);
+	} else if(in_ex == 'excludes' && removedID) {
+		selectedExcludes.remove(removedID);
+	} else if(in_ex == 'includes' && addedID) {
+		selectedIncludes.push(addedID);
+	} else if(in_ex == 'includes' && removedID) {
+		$recursiveRemove(removedID);
+	}
+
+	$saveState();
+	
+	<!--- INCLUDE LOOP --->
+	for (i=lowestLevel;i<=highestLevel;i++) { 
+		$('##include_'+i).empty();
+		for(j in hByLevel){ <!--- begin for loop j in hierarchy --->
+			//window.console && console.log(hByLevel[j].ENTITYLEVEL + ' : ' + i);
+			//window.console && console.log(parseInt(hByLevel[j].ENTITYTYPEID) + ' < ' + $('##filter_ENTITYTYPEID').val());
+			//window.console && console.log($.inArray(hByLevel[j].PARENTENTITYID, selectedIncludes ));
+			//window.console && console.log(hByLevel[j].PARENTENTITYID);
+			//window.console && console.log(selectedIncludes);
+			
+				if ( hByLevel[j].ENTITYLEVEL == i   <!--- if items belong in this level --->
+					 && parseInt(hByLevel[j].ENTITYTYPEID) < $('##filter_ENTITYTYPEID').val() <!--- type is less than argument value --->
+					 && $.inArray(hByLevel[j].PARENTENTITYID, selectedIncludes ) >= 0  <!--- is my parent selected in includes --->
+					) { 
+
+						$('##include_'+i).append($('<option>', { 
+							value: hByLevel[j].ENTITYID,
+							text : hByLevel[j].ENTITYNAME,
+							parentEntityID : hByLevel[j].PARENTENTITYID,
+							class : hByLevel[j].ENTITYTYPENAME,
+							level : hByLevel[j].ENTITYLEVEL,
+							selected: ($.inArray(hByLevel[j].ENTITYID, selectedIncludes) >= 0 ? true : false)
+						}));
+					}	
+			} <!--- end for loop j in hierarchy --->
+			$("##include_" + i + " > option").each(function() {
+				$("##include_" + i + " > ." + this.className).wrapAll("<optgroup label='"+this.className+"' />");
+			});
+			
+		if($('##include_'+i).children().length > 0) {
+			$('##div_include_'+i).show();
+			$('##include_'+i).select2({placeholder: "Include items below....",formatResult: formatOptions,formatSelection: formatOptions, containerCssClass: "marginbottom"});
+			$('##include_'+i).off('change');
+			$('##include_'+i).on("change", function(e) {
+					if(e.removed) {  $fillOptions('includes', null, e.removed.id); } 
+					else if(e.added){ $fillOptions('includes', e.added.id, null);}
+				});
+		 } else {		
+			$('##div_include_'+i).hide();		
+		 }		
+	} <!--- end INCLUDE LOOP --->
+	
+	var lastSelectedExcludes = JSON.parse(JSON.stringify($findLeafs_includes()));
+	
+	<!--- EXLUDES LOOP --->
+	for (i=lowestLevel;i<=highestLevel;i++) { 
+		$('##exclude_'+i).empty();
+			for(j in hByLevel){ <!--- begin for loop j in hierarchy --->			
+				if ( hByLevel[j].ENTITYLEVEL == i    <!--- if items belong in this level --->
+					 && parseInt(hByLevel[j].ENTITYTYPEID) < $('##filter_ENTITYTYPEID').val() <!--- type is less than argument value --->
+					 && $.inArray(hByLevel[j].PARENTENTITYID, lastSelectedExcludes ) >= 0 
+				    ) { <!--- is my parent selected in includes --->
+						var selected = false;
+						if ($.inArray(hByLevel[j].ENTITYID, selectedExcludes) >= 0 ) {
+							selected = true;
+						} else {
+							lastSelectedExcludes.push(hByLevel[j].ENTITYID);
+						}
+						$('##exclude_'+i).append($('<option>', { 
+							value: hByLevel[j].ENTITYID,
+							text : hByLevel[j].ENTITYNAME,
+							level : hByLevel[j].ENTITYLEVEL,
+							parentEntityID : hByLevel[j].PARENTENTITYID,
+							class : hByLevel[j].ENTITYTYPENAME,
+							selected: selected
+						}));
+					}										
+				} <!--- end for loop j in hierarchy --->
+
+				$("##exclude_" + i + " > option").each(function() {
+					$("##exclude_" + i + " > ." + this.className).wrapAll("<optgroup label='"+this.className+"' />");
+				});		
+	
+		if($('##exclude_'+i).children().length > 0) {
+			$('##div_exclude_'+i).show();
+			$('##exclude_'+i).select2({placeholder: "Exclude items below....",formatResult: formatOptions,formatSelection: formatOptions, containerCssClass: "marginbottom"});
+			$('##exclude_'+i).off('change');
+			$('##exclude_'+i).on("change", function(e) {
+					if(e.removed) {  
+						$fillOptions('excludes', null, e.removed.id); 
+						if($('##include_'+$(e.target).parent().attr('level')).children().length > 0) {
+							$('##div_include_'+$(e.target).parent().attr('level')).show();
+						}
+						//$($('##exclude_'+$(e.target).parent().attr('level')).select2("container")).removeClass('s2HasSelection');
+				
+					} else if (e.added){
+						$fillOptions('excludes', e.added.id, null);  
+						$('##div_include_'+$(e.target).parent().attr('level')).hide();
+						//$($('##exclude_'+$(e.target).parent().attr('level')).select2("container")).addClass('s2HasSelection');
+						
+					}
+				});	
+			if($('##exclude_'+i +' option:selected').length > 0) {	
+				$('##div_include_'+i).hide();		
+			  }		
+		 }	else {		
+			$('##div_exclude_'+i).hide();		
+		 }		
+				
+	} <!--- end EXCLUDE LOOP --->
+	
+	$findLeafs_excludes();
+
+	if(advancedFiltersVisibility){
+		$('##filters_exclude').show();
+		if($('##filters_exclude').find('.col-sm-6:visible').length == 0) $('##filters_exclude').hide();
+	}
+
+	$('##filters_include').show();
+	if($('##filters_include').find('.col-sm-6:visible').length == 0) $('##filters_include').hide();
+}	<!--- end fillOptions() --->	
+
+
+/*************************************************************************/
+//  FUNC:  INIT LEVELS  //
+/*************************************************************************/
+
+for (i=lowestLevel;i<=highestLevel;i++) {
+	$('##filters_include').append($("<div class='col-md-4 col-sm-6 col-xs-6' id='div_include_"+i+"' level='"+i+"' style='display:none'><select name='include_" + i +  "' id='include_" + i +"' level='"+i+"' multiple class='form-control select2-input'></select></div>"));	
+	
+	$('##filters_exclude').append($("<div class='col-md-4 col-sm-6 col-xs-6' id='div_exclude_"+i+"' level='"+i+"' style='display:none'><select name='exclude_" + i +  "' id='exclude_" + i +"' level='"+i+"' multiple class='form-control select2-input'></select></div>"));
+	
+}
+
+$fillOptions();
+$displayFilters();
+  
+/*************************************************************************/
+//  EVENTS     //
+/*************************************************************************/  
+  
+ $('##clear-filters-btn').on("click", function(e) {
+ 		$('##filter_KEYWORDS').val('');
+ 		$('##filter_ACTIVITYDAYRANGE').select2("val", "");
+ 		$('##filter_BIRTHDAYDAYS').select2("val", "");
+ 		$('##filter_ANNIVERSARYDAYS').select2("val", "");
+		selectedIncludes = ['#session.auth.PARENTENTITYID#'];
+		selectedExcludes = [];
+		$fillOptions();			
+ });    
+ 
+  $('##toggle-filters-btn').on("click", function(e) {
+  	
+  		if(advancedFiltersVisibility) {
+  			advancedFiltersVisibility = false;
+  		} else {
+  			advancedFiltersVisibility = true;
+  		}
+  		
+ 		$displayFilters();
+ 	 });    
+    
+ 
+ 
+<cfif attributes.entitytypeid IS "10"> 
+
+/*************************************************************************/
+//  SELECT2 ADV SEARCH OPTIONS     //
+/*************************************************************************/  
+  
+$('##filter_ACTIVITYDAYRANGE').select2({placeholder: "Last Activity",formatResult: formatOptions,formatSelection: formatOptions, minimumResultsForSearch: "20", allowClear: true}).select2('val', ActivityDayRange);
+
+$('##filter_BIRTHDAYDAYS').select2({placeholder: "Member Birthday",formatResult: formatOptions,formatSelection: formatOptions, minimumResultsForSearch: "20", allowClear: true}).select2('val', BirthdayDays);
+
+$('##filter_ANNIVERSARYDAYS').select2({placeholder: "Member Anniversary",formatResult: formatOptions,formatSelection: formatOptions, minimumResultsForSearch: "20", allowClear: true}).select2('val', AnniversaryDays);
+</cfif>
+$('##filter_KEYWORDS').val(keywords);
+$('##selector_selectedMemberIDlist').val(selectedMemberIDlist);
+
+
+</cfoutput>		
+
+</cfsavecontent>
+
+
+
